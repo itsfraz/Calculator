@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    padding: 1rem;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 400px;
+}
+
+#display {
+    width: 100%;
+    height: clamp(50px, 8vh, 70px);
+    margin-bottom: clamp(1rem, 2vh, 1.5rem);
+    padding: 0.8rem;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    text-align: right;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    outline: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.3rem, 1.5vw, 0.8rem);
+}
+
+button {
+    padding: clamp(0.8rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    min-height: clamp(45px, 10vw, 60px);
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background: rgba(52, 152, 219, 0.3);
+}
+
+.equals {
+    background: rgba(46, 204, 113, 0.3);
+}
+
+.clear {
+    background: rgba(231, 76, 60, 0.3);
+}
+
+.backspace {
+    background: rgba(230, 126, 34, 0.3);
+}
+
+/* Media Queries for different screen sizes */
+@media screen and (max-width: 320px) {
+    .calculator {
+        padding: 0.8rem;
+    }
+    
+    button {
+        padding: 0.5rem;
+        font-size: 1rem;
+        min-height: 40px;
+    }
+    
+    .buttons {
+        gap: 0.3rem;
+    }
+    
+    #display {
+        height: 45px;
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .calculator {
+        padding: 2rem;
+    }
+    
+    button {
+        min-height: 60px;
+    }
+    
+    #display {
+        height: 70px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Support for dark mode */
+@media (prefers-color-scheme: dark) {
+    #display {
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+    }
+    
+    button {
+        color: #fff;
+    }
+}

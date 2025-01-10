@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button onclick="calc('C')" class="clear">C</button>
+            <button onclick="calc('←')" class="backspace">←</button>
+            <button onclick="calc('%')" class="operator">%</button>
+            <button onclick="calc('/')" class="operator">/</button>
+            
+            <button onclick="calc('7')">7</button>
+            <button onclick="calc('8')">8</button>
+            <button onclick="calc('9')">9</button>
+            <button onclick="calc('*')" class="operator">×</button>
+            
+            <button onclick="calc('4')">4</button>
+            <button onclick="calc('5')">5</button>
+            <button onclick="calc('6')">6</button>
+            <button onclick="calc('-')" class="operator">-</button>
+            
+            <button onclick="calc('1')">1</button>
+            <button onclick="calc('2')">2</button>
+            <button onclick="calc('3')">3</button>
+            <button onclick="calc('+')" class="operator">+</button>
+            
+            <button onclick="calc('0')">0</button>
+            <button onclick="calc('.')">.</button>
+            <button onclick="calc('=')" class="equals" style="grid-column: span 2">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
