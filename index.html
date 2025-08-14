@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Scientific Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
-<body>
+<body data-theme="dark">
     <div class="calculator-container">
         <div class="top-controls">
             <button onclick="toggleHistory()" id="history-btn" class="control-btn">
@@ -21,52 +21,98 @@
         
         <div class="calculator">
             <div class="history-panel" id="history-panel">
-                <h3>History <button onclick="clearHistory()" class="clear-history">Clear</button></h3>
+                <div class="history-header">
+                    <h3>History</h3>
+                    <button onclick="clearHistory()" class="clear-history">Clear</button>
+                </div>
                 <div class="history-list" id="history-list"></div>
             </div>
             
             <div class="main-calculator">
-                <input type="text" id="display" readonly>
+                <div class="display-container">
+                    <div class="expression" id="expression-display"></div>
+                    <input type="text" id="display" readonly>
+                    <div class="keyboard-hint">Press Ctrl+H to toggle history</div>
+                </div>
                 
                 <div class="buttons">
+                    <!-- Memory buttons -->
+                    <button onclick="memoryOperation('MC')" class="memory">MC</button>
+                    <button onclick="memoryOperation('MR')" class="memory">MR</button>
+                    <button onclick="memoryOperation('M+')" class="memory">M+</button>
+                    <button onclick="memoryOperation('M-')" class="memory">M-</button>
+                    <button onclick="memoryOperation('MS')" class="memory">MS</button>
+                    <button onclick="memoryOperation('M')" class="memory">M</button>
+                    
+                    <!-- First row -->
                     <button onclick="calc('C')" class="clear">C</button>
                     <button onclick="calc('←')" class="backspace">←</button>
+                    <button onclick="calc('±')" class="operator">±</button>
                     <button onclick="calc('%')" class="operator">%</button>
-                    <button onclick="calc('/')" class="operator">/</button>
+                    <button onclick="calc('!')" class="scientific">x!</button>
+                    <button onclick="calc('1/x')" class="scientific">1/x</button>
                     
+                    <!-- Second row -->
                     <button onclick="calc('sin')" class="scientific">sin</button>
                     <button onclick="calc('cos')" class="scientific">cos</button>
                     <button onclick="calc('tan')" class="scientific">tan</button>
+                    <button onclick="calc('π')" class="scientific">π</button>
+                    <button onclick="calc('e')" class="scientific">e</button>
+                    <button onclick="calc('^')" class="operator">x^y</button>
+                    
+                    <!-- Third row -->
+                    <button onclick="calc('sinh')" class="scientific">sinh</button>
+                    <button onclick="calc('cosh')" class="scientific">cosh</button>
+                    <button onclick="calc('tanh')" class="scientific">tanh</button>
                     <button onclick="calc('(')" class="operator">(</button>
-                    
-                    <button onclick="calc('sqrt')" class="scientific">√</button>
-                    <button onclick="calc('^')" class="scientific">x^y</button>
                     <button onclick="calc(')')" class="operator">)</button>
-                    <button onclick="calc('*')" class="operator">×</button>
+                    <button onclick="calc('√')" class="scientific">√</button>
                     
+                    <!-- Fourth row -->
+                    <button onclick="calc('log')" class="scientific">log</button>
+                    <button onclick="calc('ln')" class="scientific">ln</button>
+                    <button onclick="calc('10^x')" class="scientific">10^x</button>
                     <button onclick="calc('7')">7</button>
                     <button onclick="calc('8')">8</button>
                     <button onclick="calc('9')">9</button>
-                    <button onclick="calc('-')" class="operator">-</button>
                     
+                    <!-- Fifth row -->
+                    <button onclick="calc('x²')" class="scientific">x²</button>
+                    <button onclick="calc('x³')" class="scientific">x³</button>
+                    <button onclick="calc('y√x')" class="scientific">y√x</button>
                     <button onclick="calc('4')">4</button>
                     <button onclick="calc('5')">5</button>
                     <button onclick="calc('6')">6</button>
-                    <button onclick="calc('+')" class="operator">+</button>
                     
+                    <!-- Sixth row -->
+                    <button onclick="calc('2^x')" class="scientific">2^x</button>
+                    <button onclick="calc('e^x')" class="scientific">e^x</button>
+                    <button onclick="calc('mod')" class="operator">mod</button>
                     <button onclick="calc('1')">1</button>
                     <button onclick="calc('2')">2</button>
                     <button onclick="calc('3')">3</button>
-                    <button onclick="calc('.')" class="operator">.</button>
                     
+                    <!-- Seventh row -->
+                    <button onclick="calc('Rand')" class="scientific">Rand</button>
+                    <button onclick="calc('Deg')" class="scientific" id="angle-mode">Deg</button>
+                    <button onclick="calc('Rad')" class="scientific">Rad</button>
                     <button onclick="calc('0')">0</button>
-                    <button onclick="calc('pi')" class="scientific">π</button>
-                    <button onclick="calc('e')" class="scientific">e</button>
+                    <button onclick="calc('.')">.</button>
                     <button onclick="calc('=')" class="equals">=</button>
                 </div>
             </div>
         </div>
+        
+        <div class="footer">
+            <div class="memory-display" id="memory-display">
+                <div class="memory-item">M1: 0</div>
+                <div class="memory-item">M2: 0</div>
+                <div class="memory-item">M3: 0</div>
+            </div>
+            <div>Advanced Scientific Calculator v2.0</div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+   <script src="script.js"></script>
 </body>
 </html>
